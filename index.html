@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tu</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="heart-icon_34407.ico" type="image/x-icon">
+
+    <style>
+       body {
+            background-color: black;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        #textoOculto {
+            position: absolute;
+            bottom: 50%;
+            left: 50%;
+            transform: translate(-50%, 50%);
+            color: white;
+            font-size: 24px;
+            text-align: center;
+        }
+
+        #otroTexto {
+            position: absolute;
+            bottom: 50%;
+            left: 50%;
+            transform: translate(-50%, 50%);
+            color: white;
+            font-size: 24px;
+            text-align: center;
+        }
+        .heart {
+            width: 100px;
+            height: 100px;
+            position: relative;
+            animation: heartbeat 1s ease infinite;
+        }
+
+        .heart::before,
+        .heart::after {
+            content: "";
+            position: absolute;
+            width: 100px;
+            height: 150px;
+            background-color: red;
+            border-radius: 50px 50px 0 0;
+        }
+
+        .heart::before {
+            top: -50px;
+            left: 0;
+        }
+
+        .heart::after {
+            top: -50px;
+            left: 50px;
+        }
+
+        .heart::before {
+            transform: rotate(-45deg);
+        }
+
+        .heart::after {
+            transform: rotate(45deg);
+        }
+
+        @keyframes heartbeat {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .neon-button {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: black;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+            animation: neon-glow 1s ease-in-out infinite alternate;
+        }
+
+        @keyframes neon-glow {
+            from {
+                box-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.6);
+            }
+            to {
+                box-shadow: 0 0 20px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 0.6);
+            }
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="heart" id="heart"></div>
+    <button class="neon-button" onclick="mostrarTexto()">Siguiente</button>
+    <p id="textoOculto" class="hidden">Hello de nuevo mor jsjs me estrese con python y continue por aqui pero bueno igual lo hago con el mismo sentimiento y amor pero estoy mas acostumbrado con las paginas web jsjsjs,te amo mucho amor demasiado quiero verte y darte un buen beso y demostrarte cuanto te quiero y amo</p>
+     
+    <ul id="otroTexto" class="hidden">
+        <p>Las cosas por las que te amo:</p>
+        <li>Tienes una sonrisa preciosa</li>
+        <li>Eres toda una reina</li>
+        <li>Tus besos me llenan el alma</li>
+        <li>tus mensajes me alegran el dia</li>
+        <li>Eres alguien super especial</li>
+        <li>Vales mil</li>
+        <li>Porque tienes algo que no se que es pero me encanta</li>
+        <li>Porque si</li>
+        <li>Porque me hechizastes el corazon</li>
+        <p>y la lista sigue pero se haria muy larga</p>
+
+    </ul>
+   <script>
+         
+        const heart = document.querySelector(".heart");
+
+       
+        heart.addEventListener("click", function () {
+      
+            heart.style.animation = "none";
+
+            // Forzamos un nuevo cálculo de diseño antes de agregar la animación para reiniciarla
+            void heart.offsetWidth;
+
+            heart.style.animation = "heartbeat 1s ease infinite";
+        });
+
+        function mostrarTexto() {
+            var heart = document.getElementById("heart");
+            heart.style.display = "none";
+
+            var botonSiguiente = document.querySelector(".neon-button");
+            botonSiguiente.style.display = "none";
+
+            var textoOculto = document.getElementById("textoOculto");
+            textoOculto.classList.remove("hidden");
+        }
+        setTimeout(function() {
+                textoOculto.classList.add("hidden");
+                var otroTexto = document.getElementById("otroTexto");
+                otroTexto.classList.remove("hidden");
+            }, 10000); // 5000 milisegundos = 5 segundos
+        
+        
+    </script>
+</body>
+
+</html>
